@@ -13,6 +13,7 @@ public class SelectLevels : MonoBehaviour
     public Button backButton;
     public Button nextButton;
     int firstShownLevelInGrid;
+
     // Use this for initialization
     void Start()
     {
@@ -20,6 +21,10 @@ public class SelectLevels : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 生成网格布局的关卡
+    /// </summary>
+    /// <param name="genfrom"></param>从哪里开始生成的index游标
     void GenerateGrid(int genfrom = 0)
     {
         int l = 0;
@@ -44,6 +49,9 @@ public class SelectLevels : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 清除之前缓存的关卡数据
+    /// </summary>
     void ClearLevels()
     {
         foreach (Transform item in transform)
@@ -63,6 +71,10 @@ public class SelectLevels : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 获取最后一关，即关卡总数
+    /// </summary>
+    /// <returns></returns>关卡数量
     int GetLastLevel()
     {
         TextAsset mapText = null;
