@@ -19,7 +19,7 @@ public class LevelData
 
     public static int[] map = new int[11 * 70];
 
-    //List of mission in this map
+    //整个图中的过关标准
     public static List<Mission> requestMissions = new List<Mission>();
     public static ModeGame mode = ModeGame.Vertical;
     private static float limitAmount = 40;
@@ -56,24 +56,23 @@ public class LevelData
     public static void LoadDataFromLocal(int currentLevel)
     {
         requestMissions.Clear();
-        //Read data from text file
+        //从文本文件读取配置
         TextAsset mapText = Resources.Load("Levels/" + currentLevel) as TextAsset;
         ProcessGameDataFromString(mapText.text);
     }
     public static void LoadDataFromURL(int currentLevel)
     {
-        //Read data from your server, if you want
+        //可以从服务器获取数据
     }
     static void ProcessGameDataFromString(string mapText)
     {
-        //Structure of text file like this:
-        //1st: Line start with "GM". This is game mode line (0-Move Limit, 1-Time Limit)
-        //2nd: Line start with "LMT" is limit amount of play time (time of move or seconds depend on game mode)
-        //Ex: LMT 20  mean player can move 20 times or 20 seconds, depend on game mode
-        //3rd: Line start with "MNS" is missions line. This is amount ofScore/Block/Ring/... 
-        //Ex: MNS 10000/24/0' mean user need get 1000 points, 24 block, and not need to get rings.
-        //4th:Map lines: This is an array of square types.
-        //First thing is split text to get all in arrays of text
+        //格式说明
+        //1st.以GM开头，表示游戏模式(1:移动限制模式，2.时间限制模式)
+        //2st.以LMT开头，表示可操作的次数限制（移动次数或者秒数，根据游戏模式有不同）
+        //Ex: 20表示玩家可以移动20次，或者有20秒通关时间
+        //3rd: MNS表示通关要求的标准线。 
+        //Ex: MNS 10000/24/0' 表示玩家需要获取 1000 points, 24 block, 不需要 rings.
+        //4th:Map lines: 地图的规格
         string[] lines = mapText.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
         int mapLine = 0;

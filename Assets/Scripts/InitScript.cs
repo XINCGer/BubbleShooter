@@ -93,7 +93,7 @@ namespace InitScriptName
 
             //当游戏第一次运行时候
             if (PlayerPrefs.GetInt("Lauched") == 0)
-            {  
+            {
                 FirstTime = true;
                 Lifes = CapOfLife;
                 Gems = 5;
@@ -251,7 +251,7 @@ namespace InitScriptName
                 GameObject.Find("Canvas").transform.Find("MenuPlay").gameObject.SetActive(true);
             }
         }
-#endregion
+        #endregion
 
 
         void OnApplicationPause(bool pauseStatus)
@@ -269,24 +269,14 @@ namespace InitScriptName
             }
         }
 
-        void OnEnable()
-        {
-
-        }
-
         void OnDisable()
         {
-            //		if(RestLifeTimer>0){
             PlayerPrefs.SetFloat("RestLifeTimer", RestLifeTimer);
-            //		}
             PlayerPrefs.SetInt("Lifes", Lifes);
             if (Application.loadedLevel != 2)
                 PlayerPrefs.SetString("DateOfExit", DateTime.Now.ToString());
             PlayerPrefs.SetInt("Gems", Gems);
             PlayerPrefs.Save();
-
-            //		FacebookSNSAgent.OnUserInfoArrived -= OnUserInfoArrived;
-            //		FacebookSNSAgent.OnUserFriendsArrived -= OnUserFriendsArrived;
         }
 
     }
