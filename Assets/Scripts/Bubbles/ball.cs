@@ -11,8 +11,8 @@ public class ball : MonoBehaviour
     public Sprite[] boosts;
     public bool isTarget;
 
-    //	 public OTSprite sprite;                    // This star's sprite class
-    Vector2 speed =                     // Star movement speed / second
+    //	 public OTSprite sprite;                    //star's sprite class
+    Vector2 speed =                     // 每秒星星的移动速度
         new Vector2( 250, 250 );
     public Vector3 target;
     Vector2 worldPos;
@@ -78,6 +78,9 @@ public class ball : MonoBehaviour
     private static int fireworks;
     private bool touchedTop;
     private bool touchedSide;
+    /// <summary>
+    /// 火球消除的移动限制
+    /// </summary>
     private int fireBallLimit = 10;
     private bool launched;
     private bool animStarted;
