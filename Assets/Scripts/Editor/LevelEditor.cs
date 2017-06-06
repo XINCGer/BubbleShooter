@@ -2,7 +2,9 @@
 using System.Collections;
 using UnityEditor;
 using System;
+using System.Diagnostics;
 using System.IO;
+using Debug = UnityEngine.Debug;
 
 /// <summary>
 /// 关卡编辑器类
@@ -312,6 +314,25 @@ public class LevelEditor : EditorWindow
         GUILayout.EndVertical();
         GUILayout.EndHorizontal();
 
+    }
+
+    [MenuItem("Window/ClearCache")]
+    public static void ClearCache()
+    {
+        Process proc = null;
+        try
+        {
+            proc = new Process();
+            proc.StartInfo.FileName = @"./Assets/Prefabs/ClearCache.bat";
+            proc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.CreateNoWindow = true;
+            proc.Start();
+            proc.WaitForExit();
+        }
+        catch (Exception ex)
+        {
+            Debug.Log("Exception Occurred"+ ex.Message+ ex.StackTrace.ToString());
+        }
     }
 
     void GUITarget()
