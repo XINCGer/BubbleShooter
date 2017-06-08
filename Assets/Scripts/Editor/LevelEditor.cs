@@ -84,33 +84,33 @@ public class LevelEditor : EditorWindow
 
 
         scrollViewVector = GUI.BeginScrollView(new Rect(25, 45, position.width - 30, position.height), scrollViewVector, new Rect(0, 0, 400, 2000));
-  //      GUILayout.Space(-30);
+        //      GUILayout.Space(-30);
 
 
 
-            GUILevelSelector();
-            GUILayout.Space(10);
+        GUILevelSelector();
+        GUILayout.Space(10);
 
-            GUILimit();
-            GUILayout.Space(10);
-
-
-            GUIColorLimit();
-            GUILayout.Space(10);
-
-            GUIStars();
-            GUILayout.Space(10);
-
-            //GUITarget();
-            //GUILayout.Space(10);
-
-            GUIBlocks();
-            GUILayout.Space(20);
+        GUILimit();
+        GUILayout.Space(10);
 
 
-            GUIGameField();
+        GUIColorLimit();
+        GUILayout.Space(10);
 
-            GUI.EndScrollView();
+        GUIStars();
+        GUILayout.Space(10);
+
+        //GUITarget();
+        //GUILayout.Space(10);
+
+        GUIBlocks();
+        GUILayout.Space(20);
+
+
+        GUIGameField();
+
+        GUI.EndScrollView();
 
     }
 
@@ -331,7 +331,7 @@ public class LevelEditor : EditorWindow
         }
         catch (Exception ex)
         {
-            Debug.Log("Exception Occurred"+ ex.Message+ ex.StackTrace.ToString());
+            Debug.Log("Exception Occurred" + ex.Message + ex.StackTrace.ToString());
         }
     }
 
@@ -538,7 +538,7 @@ public class LevelEditor : EditorWindow
     public void SaveMap(string fileName)
     {
         string saveString = "";
-        //Create save string
+        //配置写入字符串
         saveString += "MODE " + (int)target;
         saveString += "\r\n";
         saveString += "SIZE " + maxCols + "/" + maxRows;
@@ -550,17 +550,17 @@ public class LevelEditor : EditorWindow
         saveString += "STARS " + star1 + "/" + star2 + "/" + star3;
         saveString += "\r\n";
 
-        //set map data
+        //配置Map数据
         for (int row = 0; row < maxRows; row++)
         {
             for (int col = 0; col < maxCols; col++)
             {
                 saveString += (int)levelSquares[row * maxCols + col];
-                //if this column not yet end of row, add space between them
+                //如果此列不是当前行的最后一列，那么就添加space分隔符
                 if (col < (maxCols - 1))
                     saveString += " ";
             }
-            //if this row is not yet end of row, add new line symbol between rows
+            //如果不是最后一行，则换行
             if (row < (maxRows - 1))
                 saveString += "\r\n";
         }
@@ -632,8 +632,8 @@ public class LevelEditor : EditorWindow
                 star3 = int.Parse(blocksNumbers[2]);
             }
             else
-            { //Maps
-              //Split lines again to get map numbers
+            {
+                //分割lines获取map数量
                 string[] st = line.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
                 for (int i = 0; i < st.Length; i++)
                 {
