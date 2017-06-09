@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveUp : MonoBehaviour {
+public class MoveUp : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
 
     void OnTriggerStay2D(Collider2D col)
     {
@@ -15,9 +17,10 @@ public class MoveUp : MonoBehaviour {
         //    MainScript.Instance.dropUp();
         //}
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

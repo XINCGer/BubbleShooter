@@ -6,7 +6,8 @@ public enum LIMIT
     MOVES
 }
 
-public class LevelEditorBase : MonoBehaviour {
+public class LevelEditorBase : MonoBehaviour
+{
     public Sprite[] sprites;
     public Sprite[] backgrounds;
 }
