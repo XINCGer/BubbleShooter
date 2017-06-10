@@ -125,8 +125,8 @@ public class creatorBall : MonoBehaviour
                 LevelData.star3 = int.Parse(blocksNumbers[2]);
             }
             else
-            { //Maps
-              //Split lines again to get map numbers
+            {   //Maps
+                //lines分割，并获取行数
                 string[] st = line.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
                 for (int i = 0; i < st.Length; i++)
                 {
@@ -143,14 +143,14 @@ public class creatorBall : MonoBehaviour
                 mapLine++;
             }
         }
-        //random colors
+        //随机颜色
         if (LevelData.colorsDict.Count == 0)
         {
-            //add constant colors 
+            //添加固定颜色
             LevelData.colorsDict.Add(0, BallColor.yellow);
             LevelData.colorsDict.Add(1, BallColor.red);
 
-            //add random colors
+            //添加随机颜色
             List<BallColor> randomList = new List<BallColor>();
             randomList.Add(BallColor.blue);
             randomList.Add(BallColor.green);
