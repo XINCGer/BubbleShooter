@@ -4,8 +4,12 @@
 ### 简介  
 天天萌泡泡，一款以泡泡龙为主题的三消游戏，是马三的毕设项目。  
 
-### 游戏演示  
-![](./Images/Pic1.png)![](./Images/Pic2.png)  
+### 游戏下载  
+* [Windows平台](http://pan.baidu.com/s/1dFpPZvb) 密码：lu3d
+* [Android平台](http://pan.baidu.com/s/1i47I1Gp) 密码：5j4p
+
+### 游戏演示  
+![](./Images/Pic1.png)![](./Images/Pic2.png)  
 ![](./Images/Pic5.png)![](./Images/Pic6.png) 
 ![](./Images/Pic7.png)![](./Images/Pic8.png)  
 ![](./Images/Pic3.png)![](./Images/Pic4.png)  
