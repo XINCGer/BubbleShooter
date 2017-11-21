@@ -17,7 +17,7 @@
 
 ### 项目手册  
 * 开发环境：Unity5.5.0f3 & VS2013 
-* 原生UGUI + iTween插件 + PhysicX2D物理引擎   
+* 原生UGUI + iTween插件 + PhysX2D物理引擎   
 * 项目结构:  
   * 工程目录结构划分：  
 ![](./Images/1.png)  
