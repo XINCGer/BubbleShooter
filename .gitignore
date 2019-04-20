@@ -295,3 +295,6 @@ __pycache__/
 
 # Unity AutoBuild
 Library/
+Temp/
+/*.sln
+/*.csproj
