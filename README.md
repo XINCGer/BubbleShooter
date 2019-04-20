@@ -16,7 +16,7 @@
 ![](./Images/Pic9.png)  
 
 ### 项目手册  
-* 开发环境：Unity5.5.0f3 & VS2013 
+* 开发环境：Unity2018.2.13 & VS2017 
 * 原生UGUI + iTween插件 + PhysX2D物理引擎   
 * 项目结构:  
   * 工程目录结构划分：  
