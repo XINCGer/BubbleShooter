@@ -28,19 +28,38 @@ public class LevelEditor : EditorWindow
     private string fileName = "1.txt";
     private BallColor brush;
     private int selected;
+    private static GameObject levelEditorBaseObj = null;
 
     [MenuItem("Window/Level Editor")]
     static void Init()
     {
         //获取打开的窗口，如果不存在则创建一个
-        window = (LevelEditor)GetWindow(typeof(LevelEditor));
+        CreateLevelBaseObj();
+        window = GetWindow<LevelEditor>(); ;
         window.Show();
     }
 
     public static void ShowWindow()
     {
         GetWindow(typeof(LevelEditor));
+    }
 
+    private static void CreateLevelBaseObj()
+    {
+        levelEditorBaseObj = GameObject.FindWithTag("LevelEditor");
+        if (null == levelEditorBaseObj)
+        {
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(@"Assets/Editor/EditorRes/LevelEditorBase.prefab");
+            if (null != prefab)
+            {
+                levelEditorBaseObj = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
+                levelEditorBaseObj.name = prefab.name;
+            }
+            else
+            {
+                Debug.LogWarning("找不到编辑器所依赖的预制体!无法打开关卡编辑器!");
+            }
+        }
     }
 
     void OnFocus()
@@ -52,7 +71,11 @@ public class LevelEditor : EditorWindow
 
         Initialize();
         LoadDataFromLocal(levelNumber);
-        LevelEditorBase lm = GameObject.FindWithTag("LevelEditor").GetComponent<LevelEditorBase>();
+        LevelEditorBase lm = null;
+        if (null != levelEditorBaseObj)
+        {
+            lm = levelEditorBaseObj.GetComponent<LevelEditorBase>();
+        }
         //解决打开错误场景后窗口卡住的问题
         if (lm == null)
         {
